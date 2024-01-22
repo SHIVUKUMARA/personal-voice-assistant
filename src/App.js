@@ -56,7 +56,9 @@ const App = () => {
   const commands = [
     {
       command: "Jarvis reset",
-      callback: ({ resetTranscript }) => resetTranscript(),
+      callback: ({ resetTranscript }) => {resetTranscript();
+      speak("Reset completed, Sir.");
+      },
     },
     {
       command: "Jarvis stop",
