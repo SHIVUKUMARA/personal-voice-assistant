@@ -50,7 +50,7 @@ const App = () => {
 
   const handleStop = () => {
     SpeechRecognition.stopListening();
-    respond("Microphone off, Sir.");
+    respond("Microphone is offed, Thank You Sir.");
   };
 
   const commands = [
@@ -104,7 +104,7 @@ const App = () => {
           <img src={giphyGif} alt="image1" />
         </div>
         <h1>J A R V I S</h1>
-        <p>I'm a Virtual Assistant JARVIS, How may i help you?</p>
+        <p>I'm a Virtual Assistant JARVIS, How may i help you ?</p>
       </div>
       <div className="control">
         <p className="switch">Microphone: {listening ? "ON" : "OFF"}</p>
@@ -119,6 +119,8 @@ const App = () => {
         </button>
       </div>
       <p className="summary">{transcript}</p>
+      <br />
+      <h3>Created By SHIVUKUMARA@2024</h3>
     </div>
   );
 };
