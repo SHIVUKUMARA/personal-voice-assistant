@@ -14,6 +14,8 @@ LIVE DEMO: [https://shivukumara-voice-assistant.netlify.app](https://shivukumara
 ON click of start, website ask for microphone access 
 ### `Allow Microphone Access`
 
+![Alt Text](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJs2NQPukSCUbLZjXQFquy238_Va-jtVAdELqG9XDYcEYjQqgLU6Y0XjF2sSvIQlyVdtI&usqp=CAU)
+
 When command is given to open any website like "Jarvis open google.com" website blocks you to navigate to another tab 
 
 Then on your searchbar window slashed icon will be there click on it allow it
