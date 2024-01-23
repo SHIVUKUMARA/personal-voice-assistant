@@ -8,14 +8,14 @@ import SpeechRecognition, {
 const App = () => {
   const speak = (text) => {
     const text_speak = new SpeechSynthesisUtterance(text);
-    
+
     text_speak.rate = 1;
     text_speak.volume = 1;
     text_speak.pitch = 1;
 
     window.speechSynthesis.speak(text_speak);
   };
-  
+
   const wishMe = () => {
     const day = new Date();
     const hour = day.getHours();
@@ -31,17 +31,15 @@ const App = () => {
     }
   };
 
-  
   useEffect(() => {
     speak("Initializing JARVIS..");
     wishMe();
-
 
     return () => {
       window.speechSynthesis.cancel();
     };
   }, []);
-  
+
   const respond = (message) => {
     const synth = window.speechSynthesis;
     const utterance = new SpeechSynthesisUtterance(message);
@@ -53,16 +51,38 @@ const App = () => {
     respond("Microphone is offed, Thank You Sir.");
   };
 
+  const getTimeNow = () => {
+    const currentTime = new Date();
+    const hours = currentTime.getHours();
+    const minutes = currentTime.getMinutes();
+    const seconds = currentTime.getSeconds();
+    const period = hours < 12 ? "AM" : "PM";
+
+    const formattedHours = hours % 12 || 12; // Convert to 12-hour format
+
+    const timeNow = `${formattedHours} ${
+      formattedHours === 1 ? "hour" : "hours"
+    } and ${minutes} ${minutes === 1 ? "minute" : "minutes"} and ${seconds} ${
+      seconds === 1 ? "second" : "seconds"
+    } ${period} `;
+    respond(`The current time is ${timeNow}, sir.`);
+  };
+
   const commands = [
     {
       command: "Jarvis reset",
-      callback: ({ resetTranscript }) => {resetTranscript();
-      speak("Reset completed, Sir.");
+      callback: ({ resetTranscript }) => {
+        resetTranscript();
+        speak("Reset completed, Sir.");
       },
     },
     {
       command: "Jarvis stop",
       callback: handleStop,
+    },
+    {
+      command: "Jarvis What is the time now",
+      callback: getTimeNow,
     },
     {
       command: "Jarvis open *",
@@ -90,12 +110,11 @@ const App = () => {
   const startListening = () => {
     SpeechRecognition.startListening({ continuous: true });
     return wishMe();
-  }
+  };
 
   if (!browserSupportsSpeechRecognition) {
     return <span>Browser doesn't support speech recognition.</span>;
   }
-  
 
   return (
     <div className="main">
