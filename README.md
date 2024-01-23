@@ -8,7 +8,7 @@ Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 
-LIVE DEMO: [https://shivukumara-voice-assistant.netlify.app](https://shivukumara-voice-assistant.netlify.app)
+LIVE DEMO: [shivukumara-personal-voice-assistant.netlify.app](shivukumara-personal-voice-assistant.netlify.app)
 
 
 ON click of start, website ask for microphone access 
